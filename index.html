@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Anniversary, My Love</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #f0f9ff;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                        url('/api/placeholder/1200/800') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('/api/placeholder/300/300') repeat;
+            opacity: 0.1;
+            animation: drift 60s linear infinite;
+        }
+        
+        @keyframes drift {
+            from { background-position: 0 0; }
+            to { background-position: 100% 100%; }
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #ff6b6b;
+            color: #fff;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            background: #ff8484;
+        }
+        
+        .section {
+            padding: 80px 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #ff6b6b;
+        }
+        
+        .memories {
+            background-color: #fff;
+        }
+        
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .memory-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .memory-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .memory-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .memory-content {
+            padding: 20px;
+        }
+        
+        .memory-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .memory-date {
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 10px;
+        }
+        
+        .memory-desc {
+            font-size: 1rem;
+            color: #555;
+        }
+        
+        .ghibli-section {
+            background: linear-gradient(to right, #a8edea, #fed6e3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ghibli-character {
+            position: absolute;
+            opacity: 0.2;
+            z-index: 0;
+        }
+        
+        .totoro {
+            width: 300px;
+            height: 300px;
+            top: -50px;
+            right: -50px;
+        }
+        
+        .ghibli-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .ghibli-text {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+        
+        .ghibli-quote {
+            font-style: italic;
+            color: #555;
+            font-size: 1.3rem;
+            margin: 40px 0;
+            padding: 20px;
+            border-left: 4px solid #ff6b6b;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 5px;
+        }
+        
+        .letter-section {
+            background: #fff;
+        }
+        
+        .letter {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .letter::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('/api/placeholder/200/200') repeat;
+            opacity: 0.03;
+            z-index: 0;
+        }
+        
+        .letter-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .letter p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .letter-sign {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 40px;
+            text-align: right;
+        }
+        
+        .gallery {
+            background-color: #f9f9f9;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+        
+        .sakura {
+            position: absolute;
+            background: #ffd5d5;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.7;
+        }
+        
+        .countdown {
+            padding: 40px 0;
+            background: #fff;
+        }
+        
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .countdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .countdown-digit {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #ff6b6b;
+        }
+        
+        .countdown-label {
+            font-size: 1rem;
+            color: #777;
+        }
+        
+        .footer {
+            padding: 40px 20px;
+            background: #333;
+            color: #fff;
+            text-align: center;
+        }
+        
+        .heart {
+            color: #ff6b6b;
+            font-size: 1.5rem;
+            animation: beat 1.5s infinite;
+        }
+        
+        @keyframes beat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .countdown-digit {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .countdown-container {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>Happy 1 Year Anniversary!</h1>
+        <p>One year of love, laughter, and unforgettable memories.</p>
+        <p>Just like in Studio Ghibli movies, our love story is magical and full of wonder.</p>
+        <a href="#memories" class="btn">Our Journey</a>
+    </div>
+    
+    <section id="countdown" class="countdown">
+        <div class="container text-center">
+            <h2 class="section-title">Our Anniversary</h2>
+            <div class="countdown-container" id="countdown-timer">
+                <div class="countdown-item">
+                    <span class="countdown-digit" id="days">00</span>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-digit" id="hours">00</span>
+                    <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-digit" id="minutes">00</span>
+                    <span class="countdown-label">Minutes</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-digit" id="seconds">00</span>
+                    <span class="countdown-label">Seconds</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="memories" class="section memories">
+        <div class="container">
+            <h2 class="section-title text-center">Our Magical Memories</h2>
+            <div class="memory-grid">
+                <div class="memory-card">
+                    <img src="/api/placeholder/400/300" alt="Our First Date" class="memory-img">
+                    <div class="memory-content">
+                        <h3 class="memory-title">Our First Date</h3>
+                        <p class="memory-date">March 14, 2024</p>
+                        <p class="memory-desc">The day we officially began our journey together. I was so nervous, but your smile made everything perfect.</p>
+                    </div>
+                </div>
+                
+                <div class="memory-card">
+                    <img src="/api/placeholder/400/300" alt="Summer Picnic" class="memory-img">
+                    <div class="memory-content">
+                        <h3 class="memory-title">Summer Picnic</h3>
+                        <p class="memory-date">June 20, 2024</p>
+                        <p class="memory-desc">Remember that beautiful day at the park? The weather was perfect, just like our time together.</p>
+                    </div>
+                </div>
+                
+                <div class="memory-card">
+                    <img src="/api/placeholder/400/300" alt="Movie Night" class="memory-img">
+                    <div class="memory-content">
+                        <h3 class="memory-title">Ghibli Movie Marathon</h3>
+                        <p class="memory-date">September 3, 2024</p>
+                        <p class="memory-desc">The night we watched all your favorite Studio Ghibli films. You fell asleep on my shoulder during "Howl's Moving Castle".</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section ghibli-section">
+        <div class="container">
+            <div class="ghibli-content">
+                <h2 class="section-title text-center">Our Ghibli-inspired Love</h2>
+                <div class="ghibli-text">
+                    <p>Just like in Studio Ghibli films, our love story is filled with magic, wonder, and beautiful moments. From the whimsical adventures to the quiet, peaceful times, every moment with you feels like I'm living in a Miyazaki masterpiece.</p>
+                    
+                    <div class="ghibli-quote">
+                        "Once you've met someone, you never really forget them. It just takes a while for your memories to return." — Spirited Away
+                    </div>
+                    
+                    <p>Like Chihiro and Haku, Sophie and Howl, or Kiki finding her place in the world, we've been on our own magical journey. Through ups and downs, we've grown together, discovering new things about ourselves and each other.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section letter-section">
+        <div class="container">
+            <h2 class="section-title text-center">A Letter to My Love</h2>
+            <div class="letter">
+                <div class="letter-content">
+                    <p>My dearest,</p>
+                    <p>As we celebrate our first anniversary, I find myself looking back at all the wonderful moments we've shared together. Every laugh, every tear, every whispered secret has been a treasure I hold close to my heart.</p>
+                    <p>Like Howl found his heart through Sophie, you've helped me discover parts of myself I never knew existed. Your kindness, your passion for anime, and your beautiful smile have made this past year the most magical time of my life.</p>
+                    <p>In the world of Studio Ghibli, there's always magic in the ordinary - just like how you make even the simplest days feel extraordinary. Whether we're watching anime together, taking walks in the park, or just sitting in comfortable silence, being with you makes everything special.</p>
+                    <p>I promise to keep creating beautiful memories with you, to stand by your side through whatever adventures life brings us, and to love you more each day.</p>
+                    <p>Thank you for being my real-life Ghibli magic.</p>
+                    <p class="letter-sign">With all my love,<br>[Your Name]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section gallery">
+        <div class="container">
+            <h2 class="section-title text-center">Our Photo Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/300" alt="Us at the Beach" class="gallery-img">
+                    <div class="gallery-caption">Our trip to the beach</div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/300" alt="Birthday Celebration" class="gallery-img">
+                    <div class="gallery-caption">Your birthday celebration</div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/300" alt="Dinner Date" class="gallery-img">
+                    <div class="gallery-caption">Our fancy dinner date</div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/300" alt="Hiking Adventure" class="gallery-img">
+                    <div class="gallery-caption">Our hiking adventure</div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/300" alt="Anime Convention" class="gallery-img">
+                    <div class="gallery-caption">Anime convention together</div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/300" alt="Sunset Walk" class="gallery-img">
+                    <div class="gallery-caption">Sunset walk in the park</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <div class="container">
+            <p>Made with <span class="heart">♥</span> for you</p>
+            <p>Happy 1st Anniversary | March 14, 2025</p>
+        </div>
+    </footer>
+
+    <script>
+        // Create falling sakura petals
+        function createSakura() {
+            const sakura = document.createElement('div');
+            sakura.className = 'sakura';
+            document.body.appendChild(sakura);
+            
+            const size = Math.random() * 10 + 5;
+            const left = Math.random() * window.innerWidth;
+            
+            sakura.style.width = `${size}px`;
+            sakura.style.height = `${size}px`;
+            sakura.style.left = `${left}px`;
+            sakura.style.top = '-10px';
+            
+            const duration = Math.random() * 5 + 5;
+            const delay = Math.random() * 5;
+            
+            sakura.style.animation = `fall ${duration}s linear ${delay}s infinite`;
+            
+            // Add animation keyframes
+            const keyframes = `
+                @keyframes fall {
+                    0% { transform: translateY(-10px) rotate(0deg); opacity: 0.7; }
+                    100% { transform: translateY(${window.innerHeight + 10}px) rotate(360deg); opacity: 0; }
+                }
+            `;
+            
+            const style = document.createElement('style');
+            style.innerHTML = keyframes;
+            document.head.appendChild(style);
+            
+            // Remove sakura after animation ends
+            setTimeout(() => {
+                sakura.remove();
+                style.remove();
+            }, (duration + delay) * 1000);
+        }
+        
+        // Create sakura petals periodically
+        setInterval(createSakura, 300);
+        
+        // Countdown Timer
+        function updateCountdown() {
+            const anniversaryDate = new Date('March 14, 2025 00:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = anniversaryDate - now;
+            
+            // If anniversary is in the past, show 0s
+            if (distance < 0) {
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+                return;
+            }
+            
+            // Calculate days, hours, minutes, and seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            // Update the countdown
+            document.getElementById('days').textContent = days < 10 ? '0' + days : days;
+            document.getElementById('hours').textContent = hours < 10 ? '0' + hours : hours;
+            document.getElementById('minutes').textContent = minutes < 10 ? '0' + minutes : minutes;
+            document.getElementById('seconds').textContent = seconds < 10 ? '0' + seconds : seconds;
+        }
+        
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
