@@ -24,7 +24,7 @@
         .hero {
             height: 100vh;
             background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
-                        url('/api/placeholder/1200/800') center/cover no-repeat;
+                        url('images/ghibli.jpg') center/cover no-repeat;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -43,7 +43,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('/api/placeholder/300/300') repeat;
+            background: url('images/ghibli.jpg') repeat;
             opacity: 0.1;
             animation: drift 60s linear infinite;
         }
@@ -140,7 +140,7 @@
         
         .memory-img {
             width: 100%;
-            height: 200px;
+            height: 500px;
             object-fit: cover;
         }
         
@@ -344,6 +344,32 @@
             font-size: 1.5rem;
             animation: beat 1.5s infinite;
         }
+
+        .music-controls {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: rgba(240, 240, 240, 0.8);
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .music-control {
+            cursor: pointer;
+            padding: 5px 10px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+            user-select: none;
+        }
+
+        .volume-control {
+            width: 100px;
+        }
         
         @keyframes beat {
             0%, 100% { transform: scale(1); }
@@ -380,10 +406,30 @@
     </style>
 </head>
 <body>
+
+    <audio id="background-music" loop>
+        <!-- Replace this with your actual music file URL -->
+        <source src="music/ghibli.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <!-- Music Control Container -->
+    <div class="music-controls">
+        <!-- Play/Pause Button -->
+        <div class="music-control" id="music-control">
+            <span class="music-icon">♪</span>
+        </div>
+        
+        <!-- Volume Slider -->
+        <div class="volume-control">
+            <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="0.5">
+        </div>
+    </div>
+
     <div class="hero">
-        <h1>Happy 1 Year Anniversary!</h1>
-        <p>One year of love, laughter, and unforgettable memories.</p>
-        <p>Just like in Studio Ghibli movies, our love story is magical and full of wonder.</p>
+        <h1>Happy 1 Year Anniversary Mwah Mwahhhhh</h1>
+        <p>Hihihihihihihi Hewoooo Pookieee Dookieeee</p>
+        <p>Hope that this journey is just the beginning and full of happy stories</p>
         <a href="#memories" class="btn">Our Journey</a>
     </div>
     
@@ -413,67 +459,53 @@
     
     <section id="memories" class="section memories">
         <div class="container">
-            <h2 class="section-title text-center">Our Magical Memories</h2>
+            <h2 class="section-title text-center">Memories</h2>
             <div class="memory-grid">
                 <div class="memory-card">
-                    <img src="/api/placeholder/400/300" alt="Our First Date" class="memory-img">
+                    <img src="images/first.jpg" alt="Our First Date" class="memory-img">
                     <div class="memory-content">
                         <h3 class="memory-title">Our First Date</h3>
                         <p class="memory-date">March 14, 2024</p>
-                        <p class="memory-desc">The day we officially began our journey together. I was so nervous, but your smile made everything perfect.</p>
+                        <p class="memory-desc">When i came back to UNIMAS and we made it official on our first date <3</p>
+                        <p class="memory-desc">Hai ji de wo men na shi hai hen shy shy de :333 <3</p>
                     </div>
                 </div>
                 
                 <div class="memory-card">
-                    <img src="/api/placeholder/400/300" alt="Summer Picnic" class="memory-img">
+                    <img src="images/graduate.jpg" alt="Summer Picnic" class="memory-img">
                     <div class="memory-content">
-                        <h3 class="memory-title">Summer Picnic</h3>
-                        <p class="memory-date">June 20, 2024</p>
-                        <p class="memory-desc">Remember that beautiful day at the park? The weather was perfect, just like our time together.</p>
+                        <h3 class="memory-title">Graduation</h3>
+                        <p class="memory-date">November 7, 2024</p>
+                        <p class="memory-desc">Yippieeee we graduated together, still very sorry that i cannot attend your convo :( </p>
+                        <p class="memory-desc">Very very happy that pookie came to mine and celebrated together <3 </p>
                     </div>
                 </div>
                 
                 <div class="memory-card">
-                    <img src="/api/placeholder/400/300" alt="Movie Night" class="memory-img">
+                    <img src="images/withbumble.jpg" alt="Movie Night" class="memory-img">
                     <div class="memory-content">
-                        <h3 class="memory-title">Ghibli Movie Marathon</h3>
-                        <p class="memory-date">September 3, 2024</p>
-                        <p class="memory-desc">The night we watched all your favorite Studio Ghibli films. You fell asleep on my shoulder during "Howl's Moving Castle".</p>
+                        <h3 class="memory-title">First Valentines</h3>
+                        <p class="memory-date">February 15, 2025</p>
+                        <p class="memory-desc">Our simple Valentines day together with Bumble bzzzzz, thanksss pookie for the gift</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
-    <section class="section ghibli-section">
-        <div class="container">
-            <div class="ghibli-content">
-                <h2 class="section-title text-center">Our Ghibli-inspired Love</h2>
-                <div class="ghibli-text">
-                    <p>Just like in Studio Ghibli films, our love story is filled with magic, wonder, and beautiful moments. From the whimsical adventures to the quiet, peaceful times, every moment with you feels like I'm living in a Miyazaki masterpiece.</p>
-                    
-                    <div class="ghibli-quote">
-                        "Once you've met someone, you never really forget them. It just takes a while for your memories to return." — Spirited Away
-                    </div>
-                    
-                    <p>Like Chihiro and Haku, Sophie and Howl, or Kiki finding her place in the world, we've been on our own magical journey. Through ups and downs, we've grown together, discovering new things about ourselves and each other.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
+   
     <section class="section letter-section">
         <div class="container">
-            <h2 class="section-title text-center">A Letter to My Love</h2>
+            <h2 class="section-title text-center">A letter for my pooks hihihihihih</h2>
             <div class="letter">
                 <div class="letter-content">
-                    <p>My dearest,</p>
-                    <p>As we celebrate our first anniversary, I find myself looking back at all the wonderful moments we've shared together. Every laugh, every tear, every whispered secret has been a treasure I hold close to my heart.</p>
-                    <p>Like Howl found his heart through Sophie, you've helped me discover parts of myself I never knew existed. Your kindness, your passion for anime, and your beautiful smile have made this past year the most magical time of my life.</p>
-                    <p>In the world of Studio Ghibli, there's always magic in the ordinary - just like how you make even the simplest days feel extraordinary. Whether we're watching anime together, taking walks in the park, or just sitting in comfortable silence, being with you makes everything special.</p>
-                    <p>I promise to keep creating beautiful memories with you, to stand by your side through whatever adventures life brings us, and to love you more each day.</p>
-                    <p>Thank you for being my real-life Ghibli magic.</p>
-                    <p class="letter-sign">With all my love,<br>[Your Name]</p>
+                    <p>Hewoo pook piok</p>
+                    <p>Happy first anniversary oh, cant believe its been 1 year alreadyy hen kuai :3 And every day for the past year has been a very happy one with you</p>
+                    <p>Wo xi huan bby mei ci dou hui tolerate wo de, hui ming bai wo de feelings, ye hui bang mang wo hen duo especially when wo de self confidence hen low de shi hou</p>
+                    <p>You are a very thoughtful person and im so glad we can be together, wo xi wang wo ke yi zuo the best de partner for my baby de, yin wei wo zhi dao wo ke neng bu shi zuo romantic de person :3</p>
+                    <p>Hai you few more months and we can live together yippieeeee, very excited for what lies ahead for us and also even more excited bby starting to work le <3333 </p>
+                    <p>Theres still a long list of goals to be fulfilled together on our journey together, thankfully its you who will be beside my all along</p>    
+                    <p>Thanks for always being by my side and i will be with you forever <3 Mwahhhhhh </p>
+                    <p class="letter-sign">Your pookie dooks</p>
                 </div>
             </div>
         </div>
@@ -481,36 +513,36 @@
     
     <section class="section gallery">
         <div class="container">
-            <h2 class="section-title text-center">Our Photo Gallery</h2>
+            <h2 class="section-title text-center">Some goofy doofy photos</h2>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="/api/placeholder/400/300" alt="Us at the Beach" class="gallery-img">
-                    <div class="gallery-caption">Our trip to the beach</div>
+                    <img src="images/goofy2.jpg" alt="Us at the Beach" class="gallery-img">
+                    <div class="gallery-caption">Hio hio :3</div>
                 </div>
                 
                 <div class="gallery-item">
-                    <img src="/api/placeholder/400/300" alt="Birthday Celebration" class="gallery-img">
-                    <div class="gallery-caption">Your birthday celebration</div>
+                    <img src="images/mask.jpg" alt="Birthday Celebration" class="gallery-img">
+                    <div class="gallery-caption">Mask poker face :3</div>
                 </div>
                 
                 <div class="gallery-item">
-                    <img src="/api/placeholder/400/300" alt="Dinner Date" class="gallery-img">
-                    <div class="gallery-caption">Our fancy dinner date</div>
+                    <img src="images/tgt1.jpg" alt="Dinner Date" class="gallery-img">
+                    <div class="gallery-caption">Yi qi qu paktor :3</div>
                 </div>
                 
                 <div class="gallery-item">
-                    <img src="/api/placeholder/400/300" alt="Hiking Adventure" class="gallery-img">
-                    <div class="gallery-caption">Our hiking adventure</div>
+                    <img src="images/goofy.jpg" alt="Hiking Adventure" class="gallery-img">
+                    <div class="gallery-caption">Zai bed goofy <3</div>
                 </div>
                 
                 <div class="gallery-item">
-                    <img src="/api/placeholder/400/300" alt="Anime Convention" class="gallery-img">
-                    <div class="gallery-caption">Anime convention together</div>
+                    <img src="images/shayla.jpg" alt="Anime Convention" class="gallery-img">
+                    <div class="gallery-caption">My shaylaaaaaaaa</div>
                 </div>
                 
                 <div class="gallery-item">
-                    <img src="/api/placeholder/400/300" alt="Sunset Walk" class="gallery-img">
-                    <div class="gallery-caption">Sunset walk in the park</div>
+                    <img src="images/shayla2.jpg" alt="Sunset Walk" class="gallery-img">
+                    <div class="gallery-caption">My shaylaaaaaa x100000000 </div>
                 </div>
             </div>
         </div>
@@ -524,6 +556,50 @@
     </footer>
 
     <script>
+
+        // Background Music Control
+        const musicControl = document.getElementById('music-control');
+        const backgroundMusic = document.getElementById('background-music');
+        const volumeSlider = document.getElementById('volume-slider');
+        let isMusicPlaying = false;
+
+        // Set initial volume
+        backgroundMusic.volume = volumeSlider.value;
+
+        // Function to toggle music play/pause
+        function toggleMusic() {
+            if (isMusicPlaying) {
+                backgroundMusic.pause();
+                musicControl.innerHTML = '<span class="music-icon">♪</span>';
+            } else {
+                // Try to play and handle autoplay restrictions
+                const playPromise = backgroundMusic.play();
+                
+                if (playPromise !== undefined) {
+                    playPromise.then(_ => {
+                        // Playback started successfully
+                        musicControl.innerHTML = '<span class="music-icon">◼</span>';
+                    })
+                    .catch(error => {
+                        // Auto-play was prevented
+                        console.log("Autoplay prevented. User interaction needed to play audio.");
+                        // Keep the play button
+                        isMusicPlaying = false;
+                        return;
+                    });
+                }
+            }
+            
+            isMusicPlaying = !isMusicPlaying;
+        }
+
+        // Volume control function
+        volumeSlider.addEventListener('input', function() {
+            backgroundMusic.volume = this.value;
+        });
+
+        // Add click event to music control
+        musicControl.addEventListener('click', toggleMusic);
         // Create falling sakura petals
         function createSakura() {
             const sakura = document.createElement('div');
